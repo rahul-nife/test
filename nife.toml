@@ -1,0 +1,53 @@
+# nile.toml file generated for affectionate-rhodes0 on 2024-06-14T18:02:54+05:30
+
+app = "affectionate-rhodes0"
+docker_file_path = ""
+github = "https://github.com/rahul-nife/react_password_generator/archive/refs/heads/main.zip"
+id = "7a3110eb33a88e31bef6d6f9628c7799a67b9be009bd410a6189df1af302ef14fc9b591d92cba6d8dff43cd097f36acb"
+
+[build]
+  builtin = "GitHub"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[env]
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  external_port = 80
+  http_checks = []
+  internal_port = 3000
+  protocol = "tcp"
+  routing_policy = "Geolocation"
+  script_checks = []
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [services.limits]
+    cpu = "1"
+    memory = "12"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [services.requests]
+    cpu = "0.5"
+    memory = "12"
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 6
+    timeout = "2s"
