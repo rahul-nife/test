@@ -1,0 +1,53 @@
+# nile.toml file generated for gallant-spence7 on 2024-06-14T17:30:54+05:30
+
+app = "gallant-spence7"
+docker_file_path = ""
+github = "https://github.com/rahul-nife/react_password_generator/archive/refs/heads/main.zip"
+id = "31f4fd77a2043172c7260d65114909a521d82f9d6862296e65343b5e786244c01e7e9db8b9741d38d8b29cbf496ac767"
+
+[build]
+  builtin = "GitHub"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[env]
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  external_port = 80
+  http_checks = []
+  internal_port = 3000
+  protocol = "tcp"
+  routing_policy = "Geolocation"
+  script_checks = []
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [services.limits]
+    cpu = "1"
+    memory = "12"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [services.requests]
+    cpu = "0.5"
+    memory = "12"
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 6
+    timeout = "2s"
