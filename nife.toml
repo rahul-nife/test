@@ -1,11 +1,12 @@
 app = "tremendous-app-4422"
 github = "https://github.com/rahul-nife/react_password_generator/archive/refs/heads/main.zip"
 id = "690e9e40631338504fbe2316b4aac8132564f0cecd5d2a7fc8bd627ad65666dc20f2b640811b11b5cb43e7f1a04e9fbe"
-kill_signal = "SIGINT"
-kill_timeout = 5
 
 [build]
-  image = ""
+  builtin = "GitHub"
+  
+kill_signal = "SIGINT"
+kill_timeout = 5
 
 [env]
 
